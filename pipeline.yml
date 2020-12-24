@@ -83,7 +83,7 @@ jobs:
   - put: docker-image
     params:
       image: image/image.tar
-- name: deploy-demo
+- name: deploy-website
   <<: *gh-status-handlers
   public: true
   plan:
