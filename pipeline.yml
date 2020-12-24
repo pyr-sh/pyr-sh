@@ -51,7 +51,7 @@ resources:
 - name: demo-server
   type: ssh
   source:
-    host: pyr-sh.demos.pyr.sh
+    host: pyr.sh
     port: 2222
     user: demo-deploy
     private_key: ((ssh-private-key))
@@ -96,4 +96,4 @@ jobs:
       script: |
         #!/usr/bin/env bash
         set -euxo pipefail
-        /home/demo-deploy/pyr-sh.sh
+        /home/demo-deploy/pyr.sh
