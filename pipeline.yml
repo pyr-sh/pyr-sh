@@ -1,0 +1,99 @@
+meta:
+  gh-status_handlers: &gh-status-handlers
+    on_success:
+      put: gh-status
+      inputs: [pyr-sh-git]
+      params: {state: success}
+    on_failure:
+      put: gh-status
+      inputs: [pyr-sh-git]
+      params: {state: failure}
+    on_error:
+      put: gh-status
+      inputs: [pyr-sh-git]
+      params: {state: error}
+
+resource_types:
+- name: cogito
+  type: registry-image
+  check_every: 1h
+  source:
+    repository: pix4d/cogito
+- name: ssh
+  type: docker-image
+  source:
+    repository: quay.io/henry40408/concourse-ssh-resource
+    tag: latest
+
+resources:
+- name: gh-status
+  type: cogito
+  check_every: 1h
+  source:
+    owner: pyr-sh
+    repo: pyr-sh
+    access_token: ((github-token))
+- name: pyr-sh-git
+  type: git
+  icon: github
+  source:
+    uri: https://github.com/pyr-sh/pyr-sh
+    branch: master
+    username: ((github-token))
+    password: x-oauth-basic
+- name: docker-image
+  type: registry-image
+  icon: docker
+  source:
+    repository: pyrsh/pyr-sh
+    username: ((docker-username))
+    password: ((docker-password))
+- name: demo-server
+  type: ssh
+  source:
+    host: pyr-sh.demos.pyr.sh
+    port: 2222
+    user: demo-deploy
+    private_key: ((ssh-private-key))
+
+jobs:
+- name: build-and-push
+  <<: *gh-status-handlers
+  public: true
+  plan:
+  - get: pyr-sh-git
+    trigger: true
+  - task: build-image
+    privileged: true
+    config:
+      platform: linux
+      image_resource:
+        type: registry-image
+        source: { repository: vito/oci-build-task }
+      inputs:
+      - name: pyr-sh-git
+        path: .
+      outputs:
+      - name: image
+      run:
+        path: build
+      params:
+        DOCKERFILE: Dockerfile
+        CONTEXT: .
+  - put: docker-image
+    params:
+      image: image/image.tar
+- name: deploy-demo
+  <<: *gh-status-handlers
+  public: true
+  plan:
+  - get: docker-image
+    trigger: true
+  - get: pyr-sh-git
+  - put: demo-server
+    params:
+      interpreter: /bin/bash
+      script: |
+        #!/usr/bin/env bash
+        set -euxo pipefail
+        /home/demo-deploy/pyr-sh.sh
