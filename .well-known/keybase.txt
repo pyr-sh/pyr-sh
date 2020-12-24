@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/pzduniak
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://pyr.sh
+  * I am pzduniak (https://keybase.io/pzduniak) on keybase.
+  * I have a public key ASBI_G-1LEtTeXQMwVbEKm8WqqrEJ36oC2kaAAuSSOOrngo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101d0ab06a84636d87b95eb1fb7f86dae424667c90fc23fd11acf2b99eb0cda39230a",
+      "host": "keybase.io",
+      "kid": "012048fc6fb52c4b5379740cc156c42a6f16aaaac4277ea80b691a000b9248e3ab9e0a",
+      "uid": "4a2c5d27346497ad64e3b7d457a1f919",
+      "username": "pzduniak"
+    },
+    "merkle_root": {
+      "ctime": 1608337116,
+      "hash": "02f8a58fc2fa290bdd7cb62314fdb2c04cfd4ea0cd43064b20a54ef644a75b74be93e5e366c0698929e5cd3d7ac3f023d4334d5ea84cf36cb739c8f087668290",
+      "hash_meta": "f853a2119414bf422033c0daea3f2f78b9ddbc616abc1a4684595792fbb5fc50",
+      "seqno": 18445525
+    },
+    "service": {
+      "entropy": "bsj1/ceRsHCgmESwHjB9Edb6",
+      "hostname": "pyr.sh",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1608337193,
+  "expire_in": 504576000,
+  "prev": "b17db1d078853f8214b7d00d6b2878d3754dc69bf6dc4bb3c4770a27407b5681",
+  "seqno": 185,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgSPxvtSxLU3l0DMFWxCpvFqqqxCd+qAtpGgALkkjjq54Kp3BheWxvYWTES5cCzLnEILF9sdB4hT+CFLfQDWsoeNN1Tcab9txLs8R3CidAe1aBxCAYuTZti4ee5EA5KYBcyowR1g11+RTs5I2Y0CIHH3LjnwIBwqNzaWfEQO/zGJhXVbw8f2giQl7vKH28W3JX907P4aYcf8WcXRu+N6FpetY7dyAwI+sM97MfSGVB7XXVNmAYu2jJXQM6vQ6oc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAm799XiLzim7+cHZ9oiXgC/YlcBiFpxjtoY1SXdsm4s6N0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/pzduniak
+
+==================================================================
