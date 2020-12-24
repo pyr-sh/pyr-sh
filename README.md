@@ -1,2 +1,3 @@
 # pyr-sh
-website and organization's readme
+
+The website hosted at pyr.sh.
